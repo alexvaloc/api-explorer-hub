@@ -1,0 +1,42 @@
+# Archivos ignorados por Git 
+desktop.ini
+Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
+
+# --- Archivos temporales ---
+*.tmp
+*.log
+*.bak
+*.swp
+*.swo
+
+# --- Carpetas de sistema / caché ---
+.DS_Store
+.idea/
+.vscode/
+.cache/
+node_modules/
+dist/
+build/
+
+# --- Archivos de entorno ---
+# .env
+# .env.local
+# *.env.*
+
+# --- Archivos de dependencias ---
+*.lock
+package-lock.json
+yarn.lock
+
+# --- Archivos de compilación ---
+*.obj
+*.exe
+*.dll
+*.pdb
+
+# --- Otros ---
+*.zip
+*.rar
+*.7z
