@@ -44,18 +44,15 @@ It focuses on building reusable UI patterns such as searchable lists, detail pag
 
 ## 🚀 Getting Started
 
-````bash
-## Getting Started
 1. Install dependencies:
+
 ```
-bash
 npm install
 ```
 
 2. Run in development:
 
 ```
-bash
 npm start
 ```
 
@@ -79,4 +76,7 @@ A small React app that aggregates two public APIs in one UI, with routing, searc
 - Managed async data fetching with debouncing and basic caching.
 - Implemented client-side routing and parameterized URLs.
 - Improved UX with loading, empty and error states.
-````
+
+```
+
+```
