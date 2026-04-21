@@ -113,6 +113,19 @@
     radial-gradient(700px 260px at 110% 0%, #fef3c7 0%, transparent 60%),
     #ffffff;
 }
+
+.list-org-title {
+  margin: 2px 18px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.list-org-title span {
+  color: #0f172a;
+  text-transform: lowercase;
+}
+
 .list-header-row,
 .member-row {
   display: grid;

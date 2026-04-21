@@ -62,6 +62,9 @@ export const GithubList: React.FC<Props> = ({ filter }) => {
   return (
     <>
       <div className="list-container">
+        <h2 className="list-org-title">
+          Organization: <span>{debouncedFilter}</span>
+        </h2>
         <div className="list-header-row">
           <span>Avatar</span>
           <span>Id</span>
