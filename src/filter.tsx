@@ -31,19 +31,24 @@ export const Filter: React.FC<Props> = ({
 
   return (
     <div className="filter-container">
-      <input
-        className="filter-input"
-        type="text"
-        placeholder={placeholder}
-        value={inputValue}
-        onChange={(e) => handleChange(e.target.value)}
-      />
-      {mode === "manual" && (
-        <button className="search-button" onClick={() => setFilter(inputValue)}>
-          Search
-        </button>
-      )}
-      {hint && <p className="filter-hint">{hint}</p>}
+      {hint && <label className="filter-label">{hint}</label>}
+      <div className="filter-controls">
+        <input
+          className="filter-input"
+          type="text"
+          placeholder={placeholder}
+          value={inputValue}
+          onChange={(e) => handleChange(e.target.value)}
+        />
+        {mode === "manual" && (
+          <button
+            className="search-button"
+            onClick={() => setFilter(inputValue)}
+          >
+            Search
+          </button>
+        )}
+      </div>
     </div>
   );
 };

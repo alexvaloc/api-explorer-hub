@@ -8,6 +8,12 @@ export const Header: React.FC = () => {
       <p className="project-subtitle">
         Explore Multiple Public APIs From One Place
       </p>
+      <div className="tech-badges">
+        <span className="tech-badge">React</span>
+        <span className="tech-badge">TypeScript</span>
+        <span className="tech-badge">Router</span>
+        <span className="tech-badge">Debounce</span>
+      </div>
       <Nav />
     </header>
   );
