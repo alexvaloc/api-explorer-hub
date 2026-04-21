@@ -132,6 +132,9 @@
 .filter-container {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 24px;
 }
 
@@ -173,6 +176,14 @@
 .search-button:hover {
   background-color: #426571;
   transform: translateY(-1px);
+}
+
+.filter-hint {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 13px;
+  color: #475569;
 }
 
 .pagination {

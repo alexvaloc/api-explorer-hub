@@ -6,23 +6,25 @@ import { Filter } from "@/filter";
 import { useDebounce } from "use-debounce";
 
 export const RickyMortyPage: React.FC = () => {
-  const [filter, setFilter] = React.useState("rick");
+  const [filter, setFilter] = React.useState("");
   const [characters, setCharacters] = React.useState<CharacterEntity[]>([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
-  const [debouncedFilter, setDebouncedFilter] = useDebounce(filter, 500);
+  const [debouncedFilter] = useDebounce(filter, 500);
+  const normalizedFilter = debouncedFilter.trim();
+  const effectiveFilter = normalizedFilter || "rick";
   const [currentPage, setCurrentPage] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState(0);
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [debouncedFilter]);
+  }, [effectiveFilter]);
 
   useEffect(() => {
     setIsLoading(true);
     setError(null);
 
-    getCharacters(debouncedFilter, currentPage)
+    getCharacters(effectiveFilter, currentPage)
       .then((data) => {
         setCharacters(data.results);
         setTotalPages(data.info.pages);
@@ -41,12 +43,18 @@ export const RickyMortyPage: React.FC = () => {
         }
         setIsLoading(false);
       });
-  }, [debouncedFilter, currentPage]);
+  }, [effectiveFilter, currentPage]);
 
   const isEmpty = !isLoading && !error && characters.length === 0;
   return (
     <>
-      <Filter filter={filter} setFilter={setFilter} mode="auto" />
+      <Filter
+        filter={filter}
+        setFilter={setFilter}
+        mode="auto"
+        placeholder="Write a character name (e.g. Summer)"
+        hint="Auto search with debounce: results update while you type."
+      />
 
       <RickyMortyList
         characters={characters}

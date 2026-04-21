@@ -6,16 +6,22 @@ import { GithubList } from "./github.list";
 export const GithubPage: React.FC = () => {
   const { filter } = useParams(); // recogemos la informacion de la URL
 
-  const [localFilter, setLocalFilter] = React.useState(filter ?? "lemoncode");
+  const [localFilter, setLocalFilter] = React.useState(filter ?? "");
 
   React.useEffect(() => {
-    if (filter && filter !== localFilter) {
+    if (typeof filter === "string" && filter !== localFilter) {
       setLocalFilter(filter);
     }
-  }, [filter]);
+  }, [filter, localFilter]);
   return (
     <>
-      <Filter filter={localFilter} setFilter={setLocalFilter} mode="manual" />
+      <Filter
+        filter={localFilter}
+        setFilter={setLocalFilter}
+        mode="manual"
+        placeholder="Write a GitHub organization (e.g. microsoft)"
+        hint="Manual search: write an organization and click Search."
+      />
       <GithubList filter={localFilter} />
     </>
   );
