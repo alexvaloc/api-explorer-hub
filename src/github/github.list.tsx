@@ -11,7 +11,7 @@ interface Props {
 export const GithubList: React.FC<Props> = ({ filter }) => {
   const [members, setMembers] = React.useState<MemberEntity[]>([]);
   const normalizedFilter = filter?.trim() ?? "";
-  const effectiveFilter = normalizedFilter || "lemoncode";
+  const effectiveFilter = normalizedFilter || "microsoft";
   const [debouncedFilter] = useDebounce(effectiveFilter, 500);
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
@@ -70,11 +70,11 @@ export const GithubList: React.FC<Props> = ({ filter }) => {
         {isLoading && <div className="list-state">Loading...</div>}
         {error && <div className="list-state error">{error}</div>}
         {!isLoading && !error && members.length === 0 && (
-        <div className="list-state">No results to show</div>
-      )}
-      {members.map((member) => (
-        <GithubRow key={member.id} member={member} filter={debouncedFilter} />
-      ))}
+          <div className="list-state">No results to show</div>
+        )}
+        {members.map((member) => (
+          <GithubRow key={member.id} member={member} filter={debouncedFilter} />
+        ))}
         <div className="pagination">
           <button
             className="pagination-button"

@@ -19,7 +19,7 @@ export const GithubPage: React.FC = () => {
         filter={localFilter}
         setFilter={setLocalFilter}
         mode="manual"
-        placeholder="Write a GitHub organization (e.g. microsoft)"
+        placeholder="Write a GitHub organization (e.g. netflix)"
         hint="Manual search: write an organization and click Search."
       />
       <GithubList filter={localFilter} />
